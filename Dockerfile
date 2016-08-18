@@ -1,11 +1,3 @@
-# Run: 
-#      $ docker build -t oracle/database:12.1.0.2 . 
-#
-# This is a little bit modified version of https://github.com/oracle/docker-images/
-# To include the Oracle binaries download during the build of the image
-# Except the "Download the Distribution" part, all is Gerald Venzl <gerald.venzl@oracle.com> work
-#
-#
 # Pull base image
 # ---------------
 FROM oraclelinux:latest
@@ -30,9 +22,9 @@ ENV ORACLE_BASE=/opt/oracle \
     CONFIG_RSP="dbca.rsp" \
     PERL_INSTALL_FILE="installPerl.sh" \
     RUN_FILE="runOracle.sh" \ 
-    ORACLE_PWD="" \
-    MOSU="" \
-    MOSP=""
+    ORACLE_PWD="<put_the_password_you_want>" \
+    MOSU="<your_oracle_support_username>" \
+    MOSP="<your_oracle_support_password>"
 
 # Use second ENV so that variable get substituted
 ENV INSTALL_DIR=$ORACLE_BASE/install \
